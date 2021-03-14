@@ -4,7 +4,7 @@ Some samples Db2 for z/OS user defined function &amp; table functions
 | Function Name         | Type          | Description                                                    |
 | --------------------- | ------------- | ---------------------------------------------------------------|
 | [RCDF.CSI](#csi)      | External UDTF | Return a table from the Catalog Search Interface               |
-| RCDF.PDSDIR           | External UDTF | Return a list of members of a PDS/Library dataset              |
+| RCDF.PDSDIR(#pdsdir)  | External UDTF | Return a list of members of a PDS/Library dataset              |
 | RCDF.NSLOOKUP         | External UDF  | Return a Hostname from an IP Address using the system resolver |
 | RCDF.UUID             | External UDF  | Return a Universally unique identifier                         |
 | RCDF.WORD             | External UDF  | Return n-word from string using a specified separator          |
@@ -17,7 +17,6 @@ Some samples Db2 for z/OS user defined function &amp; table functions
 * Customize & submit **$BUILD** and **$DDL** JCL procedures.
 * Refresh the LLA, if needed, and customize & submit **$TEST**.
 
-<a name="csi"></a>
 # CSI
 Call the Catalog Search Interface
 | Argument | Description |
@@ -26,8 +25,18 @@ Call the Catalog Search Interface
 | type     | varchar - Dataset type. Up to 16 types, all types if null. Refer to CSIETYPE.|
 
 Sample: to list all SYS1.** non-vsam datasets:
-```
+```sql
 SELECT * FROM TABLE(RCDF.CSI('SYS1.**','A')) as T;
+```
+# PDSDIR
+List member of a PDS/Library
+| Argument | Description |
+| -------- | ----------- |
+| dsname   | varchar - Dataset name |
+
+Sample: to list all members from SYS1.PARMLIB:
+```sql
+SELECT * FROM TABLE(RCDF.PDSDIR('SYS1.PARMLIB')) as T;
 ```
 
 
