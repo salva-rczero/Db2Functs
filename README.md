@@ -15,7 +15,7 @@ Some samples Db2 for z/OS user defined function &amp; table functions
 # Other samples
 | file         | Description |
 | ------------ | ----------- |
-| SAMPLECX.rx  | Sample call to SYSPROX.DSNACCOX from Rexx |
+| SAMPLECX.rx  | Sample call to SYSPROC.DSNACCOX from Rexx |
 
 # Install
 * Upload $XMIT file as binary 80/FB and receive with TSO: **RECEIVE INDA('yourfile.XMIT')**
