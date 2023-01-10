@@ -12,6 +12,11 @@ Some samples Db2 for z/OS user defined function &amp; table functions
 | [RCDF.POSIXT_DATE](#posixt-date)     | SQL UDF       | Return a Unix/POSIX Epoch time from a Db2 Date                 |
 | [RCDF.B2H](#b2h)               | SQL UDF       | Return a number of bytes in human readable IEC 80000-13 suffixs|
 
+# Other samples
+| file         | Description |
+| ------------ | ----------- |
+| SAMPLECX.rx  | Sample call to SYSPROX.DSNACCOX from Rexx |
+
 # Install
 * Upload $XMIT file as binary 80/FB and receive with TSO: **RECEIVE INDA('yourfile.XMIT')**
 * Alternatively, upload all the members in this repo to a PDS/Library in your z/OS converting from ascii to ebcdic (Codepage 037).
