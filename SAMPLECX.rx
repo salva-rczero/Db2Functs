@@ -1,0 +1,266 @@
+/*>Rexx --------------------------------------------------------------*/
+/*                                                                    */
+/* Sample DSNACCOX from Rexx, for Db2 z/os v9-v12                     */
+/*                                                                    */
+/* salva Carrasco - 2022                                              */
+/*--------------------------------------------------------------------*/
+arg ssid
+call Connect ssid
+call DSNACCOX
+call Disconnect
+/* Data in data.row.col from row=[1..rows], col=[1..cols] */
+do i = 1 to rows
+   say i data.i.1 data.i.2 data.i.14
+   end
+exit
+/*--------------------------------------------------------------------*/
+/*>Call DSNACCOX                                                      */
+/*--------------------------------------------------------------------*/
+DSNACCOX:
+querytype          = "ALL"          /* 01 IN  */
+objecttype         = "ALL"          /* 02 IN  */
+ictype             = "F"            /* 03 IN  */
+catlgschema        = ""             /* 04 IN  */
+localschema        = ""             /* 05 IN  */
+chklvl             = 40             /* 06 IN  */
+criteria           = ""             /* 07 IN  */
+unused             = ""             /* 08 IN  */
+crupdatedpagespct  = 0              /* 09 IN  */
+crupdatedpagesabs  = 0              /* 10 IN  */
+crchangespct       = 0              /* 11 IN  */
+crdaysnclastcopy   = 0              /* 12 IN  */
+icrupdatedpagespct = 0              /* 13 IN  */
+icrupdatedpagesabs = 0              /* 14 IN  */
+icrchangespct      = 0              /* 15 IN  */
+crindexsize        = 0              /* 16 IN  */
+rrtinsertspct      = 0              /* 17 IN  */
+rrtinsertsabs      = 0              /* 18 IN  */
+rrtdeletespct      = 0              /* 19 IN  */
+rrtdeletesabs      = 0              /* 20 IN  */
+rrtunclustinspct   = 0              /* 21 IN  */
+rrtdisorglobpct    = 0              /* 22 IN  */
+rrtdataspacerat    = 0              /* 23 IN  */
+rrtmassdellimit    = 0              /* 24 IN  */
+rrtindreflimit     = 0              /* 25 IN  */
+rriinsertspct      = 0              /* 26 IN  */
+rriinsertsabs      = 0              /* 27 IN  */
+rrideletespct      = 0              /* 28 IN  */
+rrideletesabs      = 0              /* 29 IN  */
+rriappendinsertpct = 0              /* 30 IN  */
+rripseudodeletepct = 0              /* 31 IN  */
+rrimassdellimit    = 0              /* 32 IN  */
+rrileaflimit       = 0              /* 33 IN  */
+rrinumlevelslimit  = 0              /* 34 IN  */
+srtinsdelupdpct    = 0              /* 35 IN  */
+srtinsdelupdabs    = 0              /* 36 IN  */
+srtmassdellimit    = 0              /* 37 IN  */
+sriinsdelupdpct    = 0              /* 38 IN  */
+sriinsdelupdabs    = 0              /* 39 IN  */
+srimassdellimit    = 0              /* 40 IN  */
+extentlimit        = 50             /* 41 IN  */
+laststatement      = ""             /* 01 OUT */
+returncode         = 0              /* 02 OUT */
+errormsg           = ""             /* 03 OUT */
+ifcaretcode        = 0              /* 04 OUT */
+ifcarescode        = 0              /* 05 OUT */
+xsbytes            = 0              /* 06 OUT */
+/************************************************************ */
+/* Indicators: -1 is null                                     */
+/************************************************************ */
+querytype_ind          = 0          /* 01 IN  */
+objecttype_ind         = 0          /* 02 IN  */
+ictype_ind             = 0          /* 03 IN  */
+catlgschema_ind        = -1         /* 04 IN  */
+localschema_ind        = -1         /* 05 IN  */
+chklvl_ind             = 0          /* 06 IN  */
+criteria_ind           = -1         /* 07 IN  */
+unused_ind             = -1         /* 08 IN  */
+crupdatedpagespct_ind  = -1         /* 09 IN  */
+crupdatedpagesabs_ind  = -1         /* 10 IN  */
+crchangespct_ind       = -1         /* 11 IN  */
+crdaysnclastcopy_ind   = -1         /* 12 IN  */
+icrupdatedpagespct_ind = -1         /* 13 IN  */
+icrupdatedpagesabs_ind = -1         /* 14 IN  */
+icrchangespct_ind      = -1         /* 15 IN  */
+crindexsize_ind        = -1         /* 16 IN  */
+rrtinsertspct_ind      = -1         /* 17 IN  */
+rrtinsertsabs_ind      = -1         /* 18 IN  */
+rrtdeletespct_ind      = -1         /* 19 IN  */
+rrtdeletesabs_ind      = -1         /* 20 IN  */
+rrtunclustinspct_ind   = -1         /* 21 IN  */
+rrtdisorglobpct_ind    = -1         /* 22 IN  */
+rrtdataspacerat_ind    = -1         /* 23 IN  */
+rrtmassdellimit_ind    = -1         /* 24 IN  */
+rrtindreflimit_ind     = -1         /* 25 IN  */
+rriinsertspct_ind      = -1         /* 26 IN  */
+rriinsertsabs_ind      = -1         /* 27 IN  */
+rrideletespct_ind      = -1         /* 28 IN  */
+rrideletesabs_ind      = -1         /* 29 IN  */
+rriappendinsertpct_ind = -1         /* 30 IN  */
+rripseudodeletepct_ind = -1         /* 31 IN  */
+rrimassdellimit_ind    = -1         /* 32 IN  */
+rrileaflimit_ind       = -1         /* 33 IN  */
+rrinumlevelslimit_ind  = -1         /* 34 IN  */
+srtinsdelupdpct_ind    = -1         /* 35 IN  */
+srtinsdelupdabs_ind    = -1         /* 36 IN  */
+srtmassdellimit_ind    = -1         /* 37 IN  */
+sriinsdelupdpct_ind    = -1         /* 38 IN  */
+sriinsdelupdabs_ind    = -1         /* 39 IN  */
+srimassdellimit_ind    = -1         /* 40 IN  */
+extentlimit_ind        = 0          /* 41 IN  */
+laststatement_ind      = 0          /* 01 OUT */
+returncode_ind         = 0          /* 02 OUT */
+errormsg_ind           = 0          /* 03 OUT */
+ifcaretcode_ind        = 0          /* 04 OUT */
+ifcarescode_ind        = 0          /* 05 OUT */
+xsbytes_ind            = 0          /* 06 OUT */
+Call Try    "call SYSPROC.DSNACCOX                       " ||,
+            "(:querytype          :querytype_ind         ," ||,
+            " :objecttype         :objecttype_ind        ," ||,
+            " :ictype             :ictype_ind            ," ||,
+            " :catlgschema        :catlgschema_ind       ," ||,
+            " :localschema        :localschema_ind       ," ||,
+            " :chklvl             :chklvl_ind            ," ||,
+            " :criteria           :criteria_ind          ," ||,
+            " :unused             :unused_ind            ," ||,
+            " :crupdatedpagespct  :crupdatedpagespct_ind ," ||,
+            " :crupdatedpagesabs  :crupdatedpagesabs_ind ," ||,
+            " :crchangespct       :crchangespct_ind      ," ||,
+            " :crdaysnclastcopy   :crdaysnclastcopy_ind  ," ||,
+            " :icrupdatedpagespct :icrupdatedpagespct_ind," ||,
+            " :icrupdatedpagesabs :icrupdatedpagesabs_ind," ||,
+            " :icrchangespct      :icrchangespct_ind     ," ||,
+            " :crindexsize        :crindexsize_ind       ," ||,
+            " :rrtinsertspct      :rrtinsertspct_ind     ," ||,
+            " :rrtinsertsabs      :rrtinsertsabs_ind     ," ||,
+            " :rrtdeletespct      :rrtdeletespct_ind     ," ||,
+            " :rrtdeletesabs      :rrtdeletesabs_ind     ," ||,
+            " :rrtunclustinspct   :rrtunclustinspct_ind  ," ||,
+            " :rrtdisorglobpct    :rrtdisorglobpct_ind   ," ||,
+            " :rrtdataspacerat    :rrtdataspacerat_ind   ," ||,
+            " :rrtmassdellimit    :rrtmassdellimit_ind   ," ||,
+            " :rrtindreflimit     :rrtindreflimit_ind    ," ||,
+            " :rriinsertspct      :rriinsertspct_ind     ," ||,
+            " :rriinsertsabs      :rriinsertsabs_ind     ," ||,
+            " :rrideletespct      :rrideletespct_ind     ," ||,
+            " :rrideletesabs      :rrideletesabs_ind     ," ||,
+            " :rriappendinsertpct :rriappendinsertpct_ind," ||,
+            " :rripseudodeletepct :rripseudodeletepct_ind," ||,
+            " :rrimassdellimit    :rrimassdellimit_ind   ," ||,
+            " :rrileaflimit       :rrileaflimit_ind      ," ||,
+            " :rrinumlevelslimit  :rrinumlevelslimit_ind ," ||,
+            " :srtinsdelupdpct    :srtinsdelupdpct_ind   ," ||,
+            " :srtinsdelupdabs    :srtinsdelupdabs_ind   ," ||,
+            " :srtmassdellimit    :srtmassdellimit_ind   ," ||,
+            " :sriinsdelupdpct    :sriinsdelupdpct_ind   ," ||,
+            " :sriinsdelupdabs    :sriinsdelupdabs_ind   ," ||,
+            " :srimassdellimit    :srimassdellimit_ind   ," ||,
+            " :extentlimit        :extentlimit_ind       ," ||,
+            " :laststatement      :laststatement_ind     ," ||,
+            " :returncode         :returncode_ind        ," ||,
+            " :errormsg           :errormsg_ind          ," ||,
+            " :ifcaretcode        :ifcaretcode_ind       ," ||,
+            " :ifcarescode        :ifcarescode_ind       ," ||,
+            " :xsbytes            :xsbytes_ind)           ",466
+Say '>> DSNACCOX SQLCODE:' sqlcode
+/*--------------------------------------------------------------------*/
+/* DSNACCOX returns +466 to indicate two results set returned:        */
+/* loc1: messages                                                     */
+/* loc2: recomendations                                               */
+/*--------------------------------------------------------------------*/
+Call Try    "associate locator (:loc1,:loc2) with " ||,
+            "procedure SYSPROC.DSNACCOX"
+
+Call Try    "allocate C101 cursor for result set :loc1"
+Do Until(sqlcode ^=0)
+   Call Try "fetch C101 into :rs_sequence, :rs_data",100
+   if sqlcode = 0 then,
+      Say 'Msg>' rs_sequence rs_data
+   End
+Call Try "close C101"
+
+rows  = 0
+Call Try "allocate C102 cursor for result set :loc2"
+Call Try "describe cursor :C102 into :OUTSQLDA"
+cols  = OUTSQLDA.SQLD
+Do Until(sqlcode ^=0)
+   Call Try "fetch C102 using descriptor :OUTSQLDA",100
+   If sqlcode = 0 then do
+      rows = rows + 1
+      do j = 1 to cols
+         data.rows.j = OUTSQLDA.j.SQLDATA
+         end
+      end
+   End
+Call Try "close C102"
+return
+/*--------------------------------------------------------------------*/
+/*>Connect to Db2                                                     */
+/* ssid - Db2 subsystem group name                                    */
+/*--------------------------------------------------------------------*/
+Connect:
+arg ssid
+address mvs "subcom dsnrexx"
+if rc then s_rc = rxsubcom('ADD','DSNREXX','DSNREXX')
+address dsnrexx "CONNECT" ssid
+if sqlcode = 0 then db2conn = 1
+else call sqlerror
+return
+/*--------------------------------------------------------------------*/
+/*>Disconnect from Db2                                                */
+/*--------------------------------------------------------------------*/
+DisConnect:
+if db2conn = 1 then do
+   address dsnrexx "DISCONNECT"
+   s_rc = rxsubcom('DELETE','DSNREXX','DSNREXX')
+   end
+return
+/*--------------------------------------------------------------------*/
+/*>Try SQL statement                                                  */
+/* sqlstmt - SQL statement                                            */
+/* sql1    - Valid sqlcode 1                                          */
+/* sql2    - Valid sqlcode 2                                          */
+/*--------------------------------------------------------------------*/
+Try:
+parse arg sqlstmt,sql1,sql2
+address dsnrexx "execsql" sqlstmt
+if sqlcode ^= 0 & sqlcode ^= sql1 & sqlcode ^= sql2 then call sqlerror
+return
+/*--------------------------------------------------------------------*/
+/*>Desc.: SQL Error                                                   */
+/*--------------------------------------------------------------------*/
+sqlerror:
+say '* SQL error, line' sigl':' sourceline(sigl)
+sqlca = 'SQLCA   '||,             /* SQLCAID  DS   CL8  ID            */
+        d2c(136,4)||,             /* SQLCABC  DS   F    BYTE COUNT    */
+        d2c(sqlcode,4)||,         /* SQLCODE  DS   F    RETURN CODE   */
+        d2c(length(sqlerrmc),2)||,/* SQLERRM  DS   H    ERR MSG PARMS */
+        left(sqlerrmc,70)||,      /*          DS   CL70 ERR MSG PARMS */
+        left(sqlerrp,8)||,        /* SQLERRP  DS   CL8  IMPL-DEPENDENT*/
+        d2c(sqlerrd.1,4)||,       /* SQLERRD1 DS   F                  */
+        d2c(sqlerrd.2,4)||,       /* SQLERRD2 DS   F                  */
+        d2c(sqlerrd.3,4)||,       /* SQLERRD3 DS   F                  */
+        d2c(sqlerrd.4,4)||,       /* SQLERRD4 DS   F                  */
+        d2c(sqlerrd.5,4)||,       /* SQLERRD5 DS   F                  */
+        d2c(sqlerrd.6,4)||,       /* SQLERRD6 DS   F                  */
+        left(sqlwarn.0,1)||,      /* SQLWARN0 DS   C'W' = WARNING     */
+        left(sqlwarn.1,1)||,      /* SQLWARN1 DS   C'W' = WARNING     */
+        left(sqlwarn.2,1)||,      /* SQLWARN2 DS   C'W' = WARNING     */
+        left(sqlwarn.3,1)||,      /* SQLWARN3 DS   C'W' = WARNING     */
+        left(sqlwarn.4,1)||,      /* SQLWARN4 DS   C'W' = WARNING     */
+        left(sqlwarn.5,1)||,      /* SQLWARN5 DS   C'W' = WARNING     */
+        left(sqlwarn.6,1)||,      /* SQLWARN6 DS   C'W' = WARNING     */
+        left(sqlwarn.7,1)||,      /* SQLWARN7 DS   C'W' = WARNING     */
+        left(sqlwarn.8,1)||,      /* SQLWARN8 DS   C'W' = WARNING     */
+        left(sqlwarn.9,1)||,      /* SQLWARN9 DS   C'W' = WARNING     */
+        left(sqlwarn.10,1)||,     /* SQLWARNA DS   C'W' = WARNING     */
+        left(sqlstate,5)          /* SQLSTATE DS   CL5                */
+tiar_msg = d2c(4096,2)copies(' ',4096)
+text_len = d2c(72,4)
+address attchpgm 'dsntiar sqlca tiar_msg text_len'
+call DisConnect
+do i = 3 to c2d(substr(tiar_msg,1,2)) by 72
+   l = substr(tiar_msg,i,72)
+   if l ^= '' then say l
+   end
+exit 16
